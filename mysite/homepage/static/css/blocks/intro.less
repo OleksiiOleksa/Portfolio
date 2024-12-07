@@ -1,0 +1,78 @@
+// main: ../style.less
+
+.intro {
+    position: relative;
+    overflow: hidden; /* Приховує все, що виходить за межі блоку */
+}
+.intro__inner {
+    display: flex;
+    padding-top: 100px;
+    border-block-start: 120px;
+    position: relative;
+    border-block-start: 1px solid fade(@gray, 30%);
+    
+}
+
+/* Елемент для symbols2.png */
+.intro__background {
+    position: absolute;
+    top: -3%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    width: 490px;
+    height: 461px;
+    background: url(../images/symbols2.png) no-repeat center center;
+    background-size: contain;
+    animation: rotate-bg 40s linear infinite;
+    z-index: 1;
+}
+
+/* Поворот зображення */
+@keyframes rotate-bg {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.intro__content {
+    width: 50%;
+    z-index: 2; /* Щоб було над зображенням */
+}
+
+.intro__subtitle {
+    font-size: 2.13rem;
+    color: @black;
+    font-weight: 200;
+}
+
+.intro__title {
+    margin-bottom: 5px;
+
+    font-size: 3rem;
+    color: @black;
+    font-weight: 700;
+}
+
+.intro__text {
+    margin-bottom: 25px;
+    font-style: 1.2rem;
+    color: fade(@black, 70%);
+}
+
+.intro__photo {
+    position: absolute;
+    bottom: 0;
+    right: 22%;
+    transform: translateX(50%);
+    z-index: 2;
+    max-width: 100%;
+    height: 90%;
+    transition: transform 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955);
+
+
+}
+
+
