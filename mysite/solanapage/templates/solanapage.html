@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana Page</title>
+    <link rel="stylesheet" href="{% static 'css/stylesolana.css' %}">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Solana</h1>
+            <nav>
+                <ul>
+                    <li><a href="#solana-chart">SOL/USDT Chart</a></li>
+                    <li><a href="#average-price">Average Price</a></li>
+                    <li><a href="#fear-greed">Fear/Greed Index</a></li>
+                    <li><a href="#solana-news">Solana News</a></li>
+                    <li><a href="#solana-events">Solana Events</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Solana Chart Section -->
+    <section id="solana-chart">
+        <div class="container">
+            <h2>SOL/USDT Chart</h2>
+            <div class="chart-container">
+                <!-- Here you will embed TradingView chart -->
+                <div id="tradingview_8c4c6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Average Price Section -->
+    <section id="average-price">
+        <div class="container">
+            <h2>Average Price (Last 7 Days)</h2>
+            <div class="price-container">
+                <!-- You will dynamically insert the average price here -->
+                <p>The average price for SOL/USDT over the past 7 days: <span id="average-price-value">Loading...</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fear/Greed Index Section -->
+    <section id="fear-greed">
+        <div class="container">
+            <h2>Fear/Greed Index for Solana</h2>
+            <div class="index-container">
+                <!-- Embed or display the index here -->
+                <p id="fear-greed-index">Loading...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solana News Section -->
+    <section id="solana-news">
+        <div class="container">
+            <h2>Latest News on Solana</h2>
+            <div class="news-container">
+                <!-- This will display the latest Solana news -->
+                <ul id="news-list">
+                    <li>Loading news...</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solana Events Section -->
+    <section id="solana-events">
+        <div class="container">
+            <h2>Upcoming Solana Events</h2>
+            <div class="events-container">
+                <!-- This will display upcoming Solana events -->
+                <ul id="events-list">
+                    <li>Loading events...</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Website. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://s3.tradingview.com/tv.js"></script>
+    <script src="{% static 'js/solana.js' %}"></script>
+</body>
+</html>

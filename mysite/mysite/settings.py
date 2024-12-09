@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'homepage',
+    'solanapage',
 ]
 
 MIDDLEWARE = [
@@ -33,7 +34,10 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'homepage/templates'],
+        'DIRS': [
+            BASE_DIR / 'homepage/templates',  # Путь для шаблонов из приложения homepage
+            BASE_DIR / 'solanapage/templates',  # Добавляем путь для шаблонов из приложения solanapage
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,7 +83,6 @@ USE_I18N = True
 USE_TZ = True
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-
 
 STATIC_URL = '/static/'
 
