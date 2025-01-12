@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solana Page</title>
     <link rel="stylesheet" href="{% static 'css/stylesolana.css' %}">
+<!-- Подключаем Raphael.js (обязательно первым) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+
+    <!-- Подключаем JustGage -->
+    <script src="https://cdn.jsdelivr.net/npm/justgage@1.4.0/justgage.min.js"></script>
 </head>
 <body>
 
@@ -31,59 +36,113 @@
         <div class="container">
             <h2>SOL/USDT Chart</h2>
             <div class="chart-container">
-                <!-- Here you will embed TradingView chart -->
+                    <!-- TradingView Widget BEGIN -->
                 <div id="tradingview_8c4c6"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                    new TradingView.widget({
+                        "width": 1080,
+                        "height": 650,
+                        "symbol": "BINANCE:SOLUSDT",
+                        "interval": "60",
+                        "timezone": "Etc/UTC",
+                        "theme": "light",
+                        "style": "1",
+                        "locale": "en",
+                        "toolbar_bg": "#f1f3f6",
+                        "enable_publishing": false,
+                        "withdateranges": true,
+                        "hide_side_toolbar": false,
+                        "allow_symbol_change": true,
+                        "container_id": "tradingview_8c4c6"
+                    });
+                </script>
+                <!-- TradingView Widget END -->
             </div>
         </div>
     </section>
 
-    <!-- Average Price Section -->
-    <section id="average-price">
-        <div class="container">
-            <h2>Average Price (Last 7 Days)</h2>
-            <div class="price-container">
-                <!-- You will dynamically insert the average price here -->
-                <p>The average price for SOL/USDT over the past 7 days: <span id="average-price-value">Loading...</span></p>
+        <!-- Average Price Section -->
+        <section id="average-price">
+            <div class="container">
+                <h2>Average Price</h2>
+                <div class="price-container">
+                    <div class="button-group">
+                        <button data-period="1">1 Day</button>
+                        <button data-period="7" class="active">7 Days</button>
+                        <button data-period="14">14 Days</button>
+                        <button data-period="30">30 Days</button>
+                    </div>
+                    <p>
+                        The average price for SOL/USDT over the selected period: 
+                        <span id="average-price-value">Loading...</span>
+                    </p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- Fear/Greed Index Section -->
-    <section id="fear-greed">
+    <section id="fear-greed-index">
         <div class="container">
-            <h2>Fear/Greed Index for Solana</h2>
+            <h2>Fear & Greed Index</h2>
             <div class="index-container">
-                <!-- Embed or display the index here -->
-                <p id="fear-greed-index">Loading...</p>
+                <!-- Контейнер для индекса страха и жадности -->
+                <div id="fear-greed-meter"></div>
+                <p id="index-greed-value">Loading...</p>
             </div>
         </div>
     </section>
+
 
     <!-- Solana News Section -->
-    <section id="solana-news">
+    <section id="solana-news" class="news-section">
         <div class="container">
-            <h2>Latest News on Solana</h2>
-            <div class="news-container">
-                <!-- This will display the latest Solana news -->
-                <ul id="news-list">
-                    <li>Loading news...</li>
-                </ul>
-            </div>
+            <h2>Latest Solana News</h2>
+            <ul class="news-container">
+                {% for article in articles %}
+                <li class="news-card">
+                    <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+                    <p>{{ article.description }}</p>
+                    <span>{{ article.publishedAt|date:"d M, Y H:i" }}</span>
+                </li>
+                {% empty %}
+                <p>No news available at the moment.</p>
+                {% endfor %}
+            </ul>
         </div>
     </section>
 
-    <!-- Solana Events Section -->
-    <section id="solana-events">
+    <!-- Solana Ecosystem Map Section -->
+    <section id="solana-ecosystem" class="ecosystem-section">
         <div class="container">
-            <h2>Upcoming Solana Events</h2>
-            <div class="events-container">
-                <!-- This will display upcoming Solana events -->
-                <ul id="events-list">
-                    <li>Loading events...</li>
-                </ul>
-            </div>
+            <h2>Solana Ecosystem Map</h2>
+            <ul class="ecosystem-container">
+                {% for project in ecosystem_projects %}
+                <li class="ecosystem-card">
+                    <a href="{{ project.link }}" target="_blank" class="ecosystem-title">{{ project.name }}</a>
+                    <p class="ecosystem-description">{{ project.description }}</p>
+                    <span class="ecosystem-category">{{ project.category }}</span>
+                </li>
+                {% empty %}
+                <p>No projects available in the ecosystem at the moment. Please check back later.</p>
+                {% endfor %}
+            </ul>
         </div>
     </section>
+
+
+    <!-- Educational Content Section -->
+    <section id="solana-education" class="education-section">
+        <div class="container">
+            <h2>Learn About Solana</h2>
+            <ul class="education-container">
+                <li><a href="https://solana.com/learn" target="_blank">Official Solana Documentation</a></li>
+                <li><a href="https://solanacookbook.com/" target="_blank">Solana Cookbook</a></li>
+                <li><a href="https://www.youtube.com/c/Solana" target="_blank">Solana YouTube Channel</a></li>
+            </ul>
+        </div>
+    </section>
+
 
     <footer>
         <div class="container">
@@ -93,6 +152,8 @@
 
     <!-- Scripts -->
     <script src="https://s3.tradingview.com/tv.js"></script>
-    <script src="{% static 'js/solana.js' %}"></script>
+    <script src="{% static 'js/solanapage.js' %}"></script>
+    
+
 </body>
 </html>
