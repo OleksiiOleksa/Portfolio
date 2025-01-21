@@ -3,6 +3,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('solana/', include('solanapage.urls')),  # Этот путь подключает urls приложения solanapage
-    path('', include('homepage.urls')),  # Путь для главной страницы
+    path('solana/', include('solanapage.urls')),
+    path('tasks/', include('taskmanager.urls')),  
+    path('accounts/', include('django.contrib.auth.urls')), 
+    path('', include('homepage.urls')),
 ]

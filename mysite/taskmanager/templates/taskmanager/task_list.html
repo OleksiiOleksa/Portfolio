@@ -1,0 +1,40 @@
+{% load static %}
+
+<!-- taskmanager/templates/taskmanager/task_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Manager</title>
+    <script src="{% static 'js/taskmanager.js' %}" defer></script>
+</head>
+<body>
+    <h1>Task List</h1>
+    <a href="{% url 'task_create' %}">Add Task</a>
+    
+    <!-- Форма сортировки задач -->
+    <form method="GET">
+        <label for="sort_by">Sort by:</label>
+        <select name="sort_by" id="sort_by">
+            <option value="created_at" {% if request.GET.sort_by == 'created_at' %}selected{% endif %}>Date Created</option>
+            <option value="priority" {% if request.GET.sort_by == 'priority' %}selected{% endif %}>Priority</option>
+        </select>
+        <button type="submit">Sort</button>
+    </form>
+
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <h3>{{ task.title }}</h3>
+                <p>{{ task.description }}</p>
+                <p>Priority: {{ task.get_priority_display }}</p>
+                <p>Status: <span class="status">{{ task.is_completed|yesno:"Completed,Not Completed" }}</span></p>
+                <a href="#" class="toggle-status" data-task-id="{{ task.pk }}">
+                    {% if task.is_completed %}Mark as Not Completed{% else %}Mark as Completed{% endif %}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

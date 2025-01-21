@@ -8,6 +8,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'baginski.oleksii@gmail.com'  # Ваша почта
+EMAIL_HOST_PASSWORD = 'djemdxytvofzyokh'  # Пароль приложения Google
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -17,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'homepage',
     'solanapage',
+    'taskmanager',
 ]
 
 MIDDLEWARE = [

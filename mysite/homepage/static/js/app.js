@@ -52,4 +52,17 @@ $(function() {
         $("body").removeClass('no-scroll'); // Включаем прокрутку страницы
     });
 
+     // Проверяем, если есть блок сообщений
+     if ($('.messages').length) {
+        // Удалить сообщение через 3 секунды
+        setTimeout(function() {
+            const messages = document.querySelector('.messages'); // Находим блок с сообщением
+            if (messages) {
+                messages.style.transition = "opacity 0.5s"; // Анимация плавного исчезновения
+                messages.style.opacity = "0"; // Прозрачность на 0
+                setTimeout(() => messages.remove(), 500); // Удаляем элемент через 0.5 секунды после исчезновения
+            }
+        }, 3000); // Задержка в 3 секунды
+    }
+
 });

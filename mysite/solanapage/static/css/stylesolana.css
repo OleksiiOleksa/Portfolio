@@ -6,11 +6,10 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F9FAFB; /* Светлый фон */
+    color: #333; /* Основной текст */
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-    padding-bottom: 50px;
 }
 
 .container {
@@ -21,7 +20,7 @@ body {
 
 /* Header */
 header {
-    background-color: #333;
+    background-color: #333; /* Темный фон */
     color: #fff;
     padding: 20px 0;
 }
@@ -29,10 +28,12 @@ header {
 header h1 {
     font-size: 2.5rem;
     text-align: center;
+    font-weight: bold;
+    color: #9945FF; /* Фиолетовый Solana */
 }
 
 nav {
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
 }
 
@@ -43,331 +44,107 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 1.2rem;
-    text-transform: uppercase;
+    font-size: 1rem;
     transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #f4a261;
+    color: #14F195; /* Зеленый Solana */
 }
 
-/* Секция: График SOL/USDT */
-#solana-chart {
-    background-color: #fff;
+/* Основные секции */
+section {
     padding: 40px 0;
-}
-
-#solana-chart h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.chart-container {
-    width: 92%;
-    height: 100%;
-    background-color: #f9f9f9; /* светлый фон для контента */
-    border-radius: 15px; /* скругленные углы */
-    border: 2px solid #d1d1d1; /* светлая граница */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* тень для глубины */
-    overflow: hidden; /* предотвращаем выход контента за границы */
-    padding: 10px; /* отступы внутри контейнера */
-    margin-top: 20px; /* отступ сверху */
-    transition: transform 0.3s ease-in-out; /* плавный переход при наведении */
-}
-
-/* Секция: Средняя цена */
-#average-price {
-    margin-top: 40px;
-}
-
-#average-price h2 {
-    text-align: center;
-    font-size: 1.6em;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.price-container {
-    background-color: #f1f1f1;
+    background-color: #fff;
+    margin: 20px 0;
     border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(83, 83, 83, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Секция: Средняя цена */
-#average-price {
-    margin-top: 40px;
-}
-
-#average-price h2 {
-    text-align: center;
-    font-size: 1.6em;
+section h2 {
+    font-size: 1.8rem;
     margin-bottom: 20px;
-    color: #333;
-}
-
-.price-container {
-    background-color: #f1f1f1;
-    border-radius: 10px;
-    padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(83, 83, 83, 0.1);
-}
-
-/* Стиль для контейнера с ценой с градиентом */
-#average-price-value {
-    font-size: 2.5em; /* Увеличиваем размер числа */
-    font-weight: bold;
-    background: linear-gradient(90deg, #9945FF, #14F195); /* Градиент от фиолетового до зеленого */
-    -webkit-background-clip: text; /* Обрезка фона по тексту */
-    background-clip: text; /* Обрезка фона по тексту */
-    color: transparent; /* Текст прозрачный, чтобы видеть только градиент */
-    display: block; /* Число будет на отдельной строке */
-    margin-top: 10px; /* Отступ сверху */
-}
-
-/* Стиль для текста, который отображает "Среднюю цену за..." */
-.price-container p {
-    font-size: 1.1em; /* Уменьшаем размер текста для обычного описания */
-    color: #555;
-    font-weight: 500; /* Более легкий вес шрифта */
-    margin-bottom: 10px;
+    color: #333;
 }
 
 /* Кнопки */
-.button-group {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.button-group button {
-    background: rgba(255, 255, 255, 0.1); 
-    color: #000; 
-    border: 2px solid rgba(153, 69, 255, 1); 
-    padding: 12px 24px; 
-    font-size: 16px; 
-    border-radius: 50px; 
-    backdrop-filter: blur(5px); 
+button {
+    background: linear-gradient(90deg, #9945FF, #14F195);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
     cursor: pointer;
-    transition: all 0.3s ease; 
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.button-group button:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(20, 241, 149, 0.6); 
-    transform: scale(1.1); 
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.button-group button.active {
-    background: rgba(153, 69, 255, 1); 
-    color: #fff; 
-    border-color: rgba(20, 241, 149, 1);
-}
-
-.button-group button:focus {
-    outline: none;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-/* Секция: Индекс страха/жадности */
-#fear-greed-index {
-    margin-top: 40px;
-    background-color: #fff; /* Белый фон */
-}
-
-#fear-greed-index h2 {
-    text-align: center;
-    font-size: 1.6em;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.index-container {
-    background-color: #fff; /* Белый фон */
+/* Карточки для отображения данных */
+.card {
+    background-color: #fff;
+    border: 1px solid #E5E7EB;
     border-radius: 10px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(83, 83, 83, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-#index-greed-value {
-    font-size: 1.4em;
+.card h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+}
+
+table thead {
+    background-color: #F3F4F6;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #E5E7EB;
+}
+
+table th {
     font-weight: bold;
     color: #333;
 }
 
-
-/* Секция: Новости Solana */
-.news-section {
-  background-color: #f4f4f4;
-  padding: 20px 0;
+table tbody tr:nth-child(even) {
+    background-color: #F9FAFB;
 }
 
-.news-container {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  max-width: 900px;
-  margin: 0 auto;
+/* Градиентный текст */
+.gradient-text {
+    background: linear-gradient(90deg, #9945FF, #14F195);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-
-.news-card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  padding: 20px;
-  transition: transform 0.3s;
-}
-
-.news-card:hover {
-  transform: translateY(-10px);
-}
-
-.news-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 10px;
-}
-
-.news-title:hover {
-  color: #007bff;
-}
-
-.news-description {
-  font-size: 14px;
-  color: #666;
-  margin: 10px 0;
-}
-
-.news-date {
-  font-size: 12px;
-  color: #999;
-  margin-top: 10px;
-  font-style: italic;
-}
-
-.news-card .news-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 15px;
-}
-
-/* Стилизация для улучшения читаемости */
-.news-container .news-card a {
-  text-decoration: none;
-}
-
-/* Секция: Экосистема Solana */
-.ecosystem-section {
-  background-color: #eef2f5;
-  padding: 20px 0;
-}
-
-.ecosystem-container {
-  list-style: none;
-  padding: 0;
-}
-
-.ecosystem-card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 10px 0;
-  padding: 15px;
-  transition: transform 0.3s;
-}
-
-.ecosystem-card:hover {
-  transform: translateY(-5px);
-}
-
-.ecosystem-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  text-decoration: none;
-}
-
-.ecosystem-title:hover {
-  color: #007bff;
-}
-
-.ecosystem-description {
-  font-size: 14px;
-  color: #666;
-  margin: 5px 0;
-}
-
-.ecosystem-category {
-  font-size: 12px;
-  color: #999;
-}
-
-/* Секция: Educational Content */
-.educational-section {
-    background-color: #e9f5fc;
-    padding: 20px 0;
-}
-
-.educational-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.educational-item {
-    margin-bottom: 15px;
-    padding: 15px;
-    border: 1px solid #d1e9f9;
-    border-radius: 8px;
-    background: #fff;
-}
-
-.educational-item h3 {
-    margin: 0 0 10px;
-    font-size: 18px;
-    color: #007bff;
-}
-
-.educational-item h3 a {
-    text-decoration: none;
-}
-
-.educational-item h3 a:hover {
-    text-decoration: underline;
-}
-
-.educational-item p {
-    margin: 0;
-    font-size: 14px;
-    color: #555;
-}
-
-.content-type {
-    display: block;
-    margin-top: 10px;
-    font-size: 12px;
-    color: #777;
-    font-style: italic;
-}
-
 
 /* Footer */
 footer {
@@ -376,6 +153,16 @@ footer {
     padding: 20px 0;
     text-align: center;
     font-size: 1rem;
+    margin-top: 30px;
+}
+
+footer a {
+    color: #14F195;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* Респонсивность */
@@ -389,13 +176,4 @@ footer {
     .container {
         width: 95%;
     }
-
-    .chart-container {
-        height: 300px;
-    }
-
-    footer {
-        font-size: 0.9rem;
-    }
 }
-

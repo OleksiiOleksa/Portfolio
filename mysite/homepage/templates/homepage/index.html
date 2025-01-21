@@ -19,7 +19,7 @@
 
             <div class="user">
                 <div class="user__avatar">
-                    <img src="https://placehold.it/57/333" alt="">
+                    <img src="{% static 'images/cat.png' %}" alt="">
                 </div>
                 <div class="user__content">
                     <div class="user__name">Oleksii <br> Bagiński</div>
@@ -177,7 +177,7 @@
     <div class="container">
         <div class="about__inner">
             <div class="about__photo">
-                <img class="img" src="{% static 'images/designer_photo.png' %}" alt="">
+                <img class="img" src="{% static 'images/photo2.png' %}" alt="">
             </div>
 
             <div class="about__content">
@@ -229,7 +229,7 @@
             </div>
 
             <div class="reviews__author">
-                <img class="reviews__photo" src="https://placehold.it/130/333" alt="">
+                <img class="reviews__photo" src="{% static 'images/cat.png' %}" alt="">
                 <div class="reviews__name">Oleksii Benedysiuk</div>
                 <div class="reviews__company">Junior Software Developer</div>
                 <div class="reviews__rating"></div>
@@ -412,6 +412,17 @@
     </div><!-- /.modal__dialog -->
 </div><!-- /.modal -->
 
+<!-- Добавьте этот блок в начале шаблона или перед формой -->
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
 <!-- Modals2 -->
 <div class="modal" id="modal_hire_me">
     <div class="modal__dialog  modal__dialog--sm">
@@ -428,29 +439,30 @@
                 <ul class="contact__info">
                     <li class="contact__info-item">
                         <img class="contact__info-icon" src="{% static 'images/phone.svg' %}" height="20" alt="Phone icon">
-                        <a href="tel:+200100100">(200) 100 100</a>
+                        <a href="tel:+200100100">+48 (794) 916 029</a>
                     </li>
                     <li class="contact__info-item">
                         <img class="contact__info-icon" src="{% static 'images/mail.svg' %}" height="20" alt="Mail icon">
-                        <a href="mailto:jashflkash@gmail.com">jashflkash@gmail.com</a>
+                        <a href="mailto:jashflkash@gmail.com">baginski.oleksii@gmail.com
+                        </a>
                     </li>
                 </ul>
                 
-                <form class="form" action="/" method="post">
+                <form class="form" action="{% url 'send_feedback' %}" method="post">
+                    {% csrf_token %}
                     <div class="form__group">    
-                        <label class="form__label" for="input-email">Adress e-mail</label>
-                        <input class="form__input" type="text" id="input-email" placeholder="Adress e-mail">
+                        <label class="form__label" for="input-email">Address e-mail</label>
+                        <input class="form__input" type="email" id="input-email" name="email" placeholder="Your email" required>
                     </div>
-
+                
                     <div class="form__group">    
-                        <label class="form__label" for="input-text">Request</label>
-                        <textarea class="form__textarea" name="input-text" id="input-text" placeholder="Type eyour request..."></textarea>
+                        <label class="form__label" for="input-text">Message</label>
+                        <textarea class="form__textarea" id="input-text" name="message" placeholder="Type your request..." required></textarea>
                     </div>
-
+                
                     <div class="text-right">
                         <button class="btn" type="submit">SEND</button>
                     </div>
-                    
                 </form>
             
             </div><!-- /.contact__left -->      
@@ -473,10 +485,10 @@
 
                 <div class="resume__pdf">
                     <!-- PDF Embed -->
-                    <embed src="{% static 'CV/Oleksii_Benedysiuk_CV.pdf' %}" width="100%" height="600px" type="application/pdf">
+                    <embed src="{% static 'CV/OLEKSII_BAGINSKI_CV.pdf' %}" width="100%" height="600px" type="application/pdf">
                 </div>
                 <div class="text-right mt-3">
-                    <a href="{% static 'CV/Oleksii_Benedysiuk_CV.pdf' %}" class="btn" download>Download CV</a>
+                    <a href="{% static 'CV/OLEKSII_BAGINSKI_CV.pdf' %}" class="btn" download>Download CV</a>
                 </div>
             </div><!-- /.resume__content -->      
         </div><!-- /.resume --> 

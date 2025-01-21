@@ -1,0 +1,17 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Task</title>
+</head>
+<body>
+    <h1>Update Task</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <p>Status: {{ task.is_completed|yesno:"Completed,Not Completed" }}</p>
+        <button type="submit">Toggle Status</button>
+    </form>
+</body>
+</html>
