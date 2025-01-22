@@ -21,16 +21,19 @@
         position: relative;
         z-index: 2;
     }
-    
+
     &:before {
         content: "";
-        width: 413px;
-        height: 413px;
-        background-color: #EFEFEF;
+        width: 475px;
+        height: 635px;
+        background-image: url('../images/back_tech.png'); /* Укажите путь к вашему изображению */
+        background-size: cover; /* Обеспечивает покрытие всей области */
+        background-position: center; /* Центрирует изображение */
+        background-repeat: no-repeat; /* Избегает повторения изображения */
 
         position: absolute;
-        left: 1rem;
-        bottom: 0;
+        left: 12rem;
+        bottom: 22px;
         z-index: 1;
     }
 }
@@ -62,8 +65,8 @@
 .about__text {
     margin-bottom: 2.8rem;
 
-    font-size: .8rem;
+    font-size: .9rem;
     line-height: 2;
-    color: @gray;
+    color: @black;
     font-weight: 300;
 }
