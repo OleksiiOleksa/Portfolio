@@ -89,13 +89,39 @@
             </div>
 
             <div class="portfolio">
-                <div class="portfolio__col" data-cat="app">
+                <div class="portfolio__col" data-cat="website">
                     <div class="work" data-modal="#modal_scraping">
-                        <img class="work__image" src="https://placehold.it/370x300" alt="">
+                        <img class="work__image" src="{% static 'images/SOLANA_LOGO.png' %}" alt="">
                         <div class="work__content">
-                            <div class="work_cat">category: app</div>
+                            <div class="work_cat">category: website</div>
                             <div class="work__title">
-                                Project title
+                                SOLANA INFO
+                                <time class="work__date" datetime="2024-10-14 19:00">2024</time>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio__col" data-cat="app">
+                    <div class="work" data-modal="#modal_bot">
+                        <img class="work__image" src="{% static 'images/BOT.png' %}" alt="">
+                        <div class="work__content">
+                            <div class="work_cat">category: App</div>
+                            <div class="work__title">
+                                Telegram Bot
+                                <time class="work__date" datetime="2024-10-14 19:00">2024</time>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio__col" data-cat="interaction">
+                    <div class="work" data-modal="#modal_scheduler">
+                        <img class="work__image" src="{% static 'images/SCHEDULER.png' %}" alt="">
+                        <div class="work__content">
+                            <div class="work_cat">category: interaction</div>
+                            <div class="work__title">
+                                PERSINAL SCHEDULER
                                 <time class="work__date" datetime="2024-10-14 19:00">2024</time>
                             </div>  
                         </div>
@@ -108,7 +134,7 @@
                         <div class="work__content">
                             <div class="work_cat">category: website</div>
                             <div class="work__title">
-                                Project title
+                                The app is in the design phase..
                                 <time class="work__date" datetime="2024-10-14 19:00">2024</time>
                             </div>  
                         </div>
@@ -121,33 +147,7 @@
                         <div class="work__content">
                             <div class="work_cat">category: interaction</div>
                             <div class="work__title">
-                                Project title
-                                <time class="work__date" datetime="2024-10-14 19:00">2024</time>
-                            </div>  
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio__col" data-cat="website">
-                    <div class="work">
-                        <img class="work__image" src="https://placehold.it/370x300" alt="">
-                        <div class="work__content">
-                            <div class="work_cat">category: website</div>
-                            <div class="work__title">
-                                Project title
-                                <time class="work__date" datetime="2024-10-14 19:00">2024</time>
-                            </div>  
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio__col" data-cat="interaction">
-                    <div class="work">
-                        <img class="work__image" src="https://placehold.it/370x300" alt="">
-                        <div class="work__content">
-                            <div class="work_cat">category: interaction</div>
-                            <div class="work__title">
-                                Project title
+                                The app is in the design phase..
                                 <time class="work__date" datetime="2024-10-14 19:00">2024</time>
                             </div>  
                         </div>
@@ -160,7 +160,7 @@
                         <div class="work__content">
                             <div class="work_cat">category: app</div>
                             <div class="work__title">
-                                Project title
+                                The app is in the design phase..
                                 <time class="work__date" datetime="2024-10-14 19:00">2024</time>
                             </div>  
                         </div>
@@ -225,88 +225,68 @@
     </div><!-- container -->
 </div><!-- reviews -->
 
-<!-- News -->
- <section class="news" id="my_story">
+<!-- News Section -->
+<section class="news" id="my_story">
     <div class="container">
-        
         <div class="news__header">
             <h3 class="news__title">My Story</h3>
-            <div class="news__text">Sometimes i write something smart</div>
         </div>
 
         <div class="articles">
             <div class="articles__col">
                 <div class="articles__item">
                     <div class="articles__header">
-                        <time class="articles__date">
-                            10<br>june
-                        </time>
-                        <a href="#">
-                            <img class="articles__photo" src="https://placehold.it/370x257" alt="">
-                        </a>
                     </div>
                     <div class="articles__content">
                         <h4 class="articles__title">
-                            <a href="#">TEN THE BEST APP IN 2017</a>
+                            <a href="#">FROM THE START TO TODAY</a>
                         </h4>
-                        <div class="articles__cat">CATEGORY</div>
+                        <div class="articles__cat">MY PAST</div>
                         <div class="articles__text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                            <p>My career started 11 years ago, and during this time, I’ve gained diverse experience across various fields. I’ve worked both in offices and in manual labor...</p>
                         </div>
                     </div>
-                    <a class="btn btn--sm" href="#">READ MORE</a>
+                    <a class="btn btn--sm" href="#" data-modal="#modal_article_1">READ MORE</a>
                 </div>
             </div>
             
             <div class="articles__col">
                 <div class="articles__item">
                     <div class="articles__header">
-                        <time class="articles__date">
-                            10<br>june
-                        </time>
-                        <a href="#">
-                            <img class="articles__photo" src="https://placehold.it/370x257" alt="">
-                        </a>
                     </div>
                     <div class="articles__content">
                         <h4 class="articles__title">
-                            <a href="#">TEN THE BEST APP IN 2017</a>
+                            <a href="#">ALWAYS MOVING FORWARD</a>
                         </h4>
-                        <div class="articles__cat">CATEGORY</div>
+                        <div class="articles__cat">MY PRESENT</div>
                         <div class="articles__text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                            <p>This is how I see my present. I’d like to share a bit about where I work and what I’m learning. Currently, I am a recruitment specialist working at Randstad...</p>
                         </div>
                     </div>
-                    <a class="btn btn--sm" href="#">READ MORE</a>
+                    <a class="btn btn--sm" href="#" data-modal="#modal_article_2">READ MORE</a>
                 </div>
             </div>
             
             <div class="articles__col">
                 <div class="articles__item">
                     <div class="articles__header">
-                        <time class="articles__date">
-                            10<br>june
-                        </time>
-                        <a href="#">
-                            <img class="articles__photo" src="https://placehold.it/370x257" alt="">
-                        </a>
                     </div>
                     <div class="articles__content">
                         <h4 class="articles__title">
-                            <a href="#">TEN THE BEST APP IN 2017</a>
+                            <a href="#">THE PATH TO THE GOAL</a>
                         </h4>
-                        <div class="articles__cat">CATEGORY</div>
+                        <div class="articles__cat">MY FUTURET</div>
                         <div class="articles__text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                            <p>Where am I heading? What do I want? These are questions we all ask ourselves, but not everyone knows what they truly want to achieve. As for me, I have a clear vision...</p>
                         </div>
                     </div>
-                    <a class="btn btn--sm" href="#">READ MORE</a>
+                    <a class="btn btn--sm" href="#" data-modal="#modal_article_3">READ MORE</a>
                 </div>
             </div>
         </div><!-- /.articles -->
-
     </div><!-- /.container -->
- </section><!-- news -->
+</section><!-- /.news -->
+
 
  <!-- Footer -->
  <footer class="footer">
@@ -314,9 +294,7 @@
 
         <div class="footer__inner">
             <div class="footer__credits">
-                <div class="footer__copyright">
-                   &copy; 2018 UI43 - Free Templates 
-                </div>
+                <div class="footer__copyright"></div>
                 <div class="footer__social">
                     <a href="https://www.linkedin.com/in/oleksii-benedysiuk/" target="_blank">
                         <img src="{% static 'images/linkedin_ikon.svg' %}" width="24" alt="">
@@ -347,7 +325,7 @@
     </div><!-- /.container-->
  </footer><!-- footer -->
 
-<!-- Modals -->
+<!-- Modals_solana -->
 <div class="modal" id="modal_scraping">
     <div class="modal__dialog">
 
@@ -356,9 +334,7 @@
         </button>
 
         <div class="modal-work">
-            <div class="modal-work__preview">
-                <img class="modal-work__photo" src="https://placehold.it/790x780" alt="">
-            </div>
+        
             <div class="modal-work__content">
 
                 <div class="modal_work__header">
@@ -395,9 +371,77 @@
         </div> <!-- /.modal-work -->
 
     </div><!-- /.modal__dialog -->
-</div><!-- /.modal -->
+</div><!-- /.modal_solana -->
 
-<!-- Добавьте этот блок в начале шаблона или перед формой -->
+<!-- Modals_bot -->
+<div class="modal" id="modal_bot">
+    <div class="modal__dialog">
+
+        <button class="modal__close" type="button" data-close>
+            <img src="{% static 'images/close.svg' %}" alt="Close">
+        </button>
+
+        <div class="modal-work">
+        
+            <div class="modal-work__content">
+
+                <div class="modal_work__header">
+                    <h3 class="modal-work__title">Project title</h3>
+                    <div class="modal-work__info">
+                        category <span class="modal-work__info-divider">|</span> 2018
+                    </div>
+                </div>
+
+                <div class="modal-work__client">
+                    <div class="modal-work__client-title">Client:</div>
+                    <div class="modal-work__client-company" >Creative Agency</div>
+                </div>
+
+                <div class="modal-work__text">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+                    <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>                    
+                </div>
+            </div>
+        </div> 
+
+    </div>
+</div>
+
+<!-- Modals_scheduler -->
+<div class="modal" id="modal_scheduler">
+    <div class="modal__dialog">
+
+        <button class="modal__close" type="button" data-close>
+            <img src="{% static 'images/close.svg' %}" alt="Close">
+        </button>
+
+        <div class="modal-work">
+        
+            <div class="modal-work__content">
+
+                <div class="modal_work__header">
+                    <h3 class="modal-work__title">Project title</h3>
+                    <div class="modal-work__info">
+                        category <span class="modal-work__info-divider">|</span> 2018
+                    </div>
+                </div>
+
+                <div class="modal-work__client">
+                    <div class="modal-work__client-title">Client:</div>
+                    <div class="modal-work__client-company" >Creative Agency</div>
+                </div>
+
+                <div class="modal-work__text">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+                    <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>                    
+                </div>
+            </div>
+        </div> 
+
+    </div>
+</div>
+
+<!-- _message -->
 {% if messages %}
     <div class="messages">
         {% for message in messages %}
@@ -407,8 +451,9 @@
         {% endfor %}
     </div>
 {% endif %}
+<!-- /.message -->
 
-<!-- Modals2 -->
+<!-- Modals_message -->
 <div class="modal" id="modal_hire_me">
     <div class="modal__dialog  modal__dialog--sm">
 
@@ -453,9 +498,9 @@
             </div><!-- /.contact__left -->      
         </div><!-- /.contact --> 
     </div><!-- /.modal__dialog -->
-</div><!-- /.modal2 -->
+</div><!-- /.modal_message -->
 
-<!-- Modal3-->
+<!-- Modal_resume-->
 <div class="modal" id="modal_resume">
     <div class="modal__dialog  modal__dialog--lg">
 
@@ -478,7 +523,83 @@
             </div><!-- /.resume__content -->      
         </div><!-- /.resume --> 
     </div><!-- /.modal__dialog -->
-</div><!-- /.modal -->
+</div><!-- /.modal_resume -->
+
+<!-- Modal for Article 1 -->
+<div class="modal" id="modal_article_1">
+    <div class="modal__dialog">
+        <button class="modal__close" type="button" data-close>
+            <img src="{% static 'images/close.svg' %}" alt="Close">
+        </button>
+        <div class="modal-work">
+            <div class="modal-work__content">
+                <div class="modal-work__header">
+                    <h3 class="modal-work__title">FROM THE START TO TODAY</h3>
+                </div>
+                <div class="modal-work__text">
+                    <p>My career started 11 years ago, and during this time, I’ve gained diverse experience across various fields. I’ve worked both in offices and in manual labor, but I’ve always strived to contribute to development, maintain quality, and improve the efficiency of task execution.</p>
+
+                    <p>My first job was at a company that produced herbal products. I was active on social media and knew how to effectively present products, which led to me being invited to the sales department to help develop the brand. I worked with both wholesale and retail sales, promoted products on social media, and most importantly, I initiated the creation of a website for the company, as it didn’t have one. This was my first experience in web development, and although I didn’t write the code myself, I played an active role in the creation and improvement of the site’s functionality.</p>
+
+                    <p>Additionally, I led the rebranding of the company, which positively impacted brand recognition in the market and increased sales volume. At that time, I was full of energy and eager to grow. However, due to the economic crisis in the country, the company almost went bankrupt, and I was laid off.</p>
+
+                    <p>The next step in my career was a brief stint as a barista. Although it only lasted five months, I managed to increase coffee sales by 75% during that time. This was a result of my charisma and ability to create a pleasant atmosphere.</p>
+
+                    <p>After that, I moved to Poland, continued my studies at a university in management, learned the Polish language, and adapted to life in a new country. I admit, it wasn’t easy, but thanks to persistence, I overcame the challenges. I worked as a dishwasher, in the kitchen, in the warehouse, and even as a laborer at the university. I am proud of this experience because I believe that confidence and responsibility are crucial in any job. For example, even seemingly small tasks, like properly arranging dishes in the dishwasher, affected the quality and speed of work.</p>
+
+                    <p>After graduating from university and gaining proficiency in Polish, I started working in the field of employment services for Ukrainian citizens in Poland. This gave me the opportunity to apply the skills I had acquired in previous jobs and my studies. I initiated the company’s rebranding, improved the creation of marketing materials, and worked on setting up advertising campaigns. Soon, I was invited to a similar role at a large corporation, where I continue to work to this day.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Article 2 -->
+<div class="modal" id="modal_article_2">
+    <div class="modal__dialog">
+        <button class="modal__close" type="button" data-close>
+            <img src="{% static 'images/close.svg' %}" alt="Close">
+        </button>
+        <div class="modal-work">
+            <div class="modal-work__content">
+                <div class="modal-work__header">
+                    <h3 class="modal-work__title">ALWAYS MOVING FORWARD</h3>
+                </div>
+                <div class="modal-work__text">
+                    <p>This is how I see my present. I’d like to share a bit about where I work and what I’m learning. Currently, I am a recruitment specialist working at Randstad, a global employment agency.</p>
+                    <p>I believe my achievements are worth highlighting. Last year, in 2024, I helped around 500 people find jobs. Yes, you heard that right — half a thousand people heard me say the words, “You’re hired!” Of course, marketing teams, HR, and other colleagues were part of the process, but as a recruiter, it was my responsibility to screen applicants, conduct interviews, and guide candidates through the hiring process.</p>
+                    <p>I’ve been working with Randstad for four years now, and during this time, I’ve implemented several improvements that enhanced the candidate search process. Leveraging my previous experience, I contributed to optimizing recruitment processes.</p>
+                    <p>But that’s not all. Over the past three years, I’ve completed two online IT courses. First, I took a testing course from the Ukrainian online university GetEd, and later, I studied with the international school GOIT. Through the program, I gained knowledge in Python, SQL, web development, and data science.</p>
+                    <p>I’d like to highlight that GOIT takes its education process very seriously. Practical exercises, mentoring support, teamwork, and working with repositories — it’s safe to say that GOIT creates an environment that closely mirrors real-world work conditions.</p>
+                    <p>Isn’t it time to put all this knowledge into practice? I think it is!</p>
+                </div>     
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Article 3 -->
+<div class="modal" id="modal_article_3">
+    <div class="modal__dialog">
+        <button class="modal__close" type="button" data-close>
+            <img src="{% static 'images/close.svg' %}" alt="Close">
+        </button>
+        <div class="modal-work">
+            <div class="modal-work__content">
+                <div class="modal-work__header">
+                    <h3 class="modal-work__title">THE PATH TO THE GOAL</h3>
+                </div>
+                <div class="modal-work__text">
+                    <p>Where am I heading? What do I want? These are questions we all ask ourselves, but not everyone knows what they truly want to achieve. As for me, I have a clear vision of my goal. I may not know every step to get there, but I’m confident I will find the way.</p>
+                    <p>What do I want? Probably the same as many others. But that doesn’t matter as much as the methods I use to get there. They are simple: do what you love, what you are best at, what brings value to others and the world. And in return, you will be rewarded. This approach aligns with the Japanese philosophy of Ikigai (生き甲斐) — "the reason for being." That’s exactly what I aim to achieve.</p>
+                    <p>I’m already on this path, partially. I’m doing what I love and what I do best. Since childhood, I’ve had a natural connection with technology. I’ve always been fascinated by its vast, intangible realm of knowledge and possibilities. Technology inspires me and fuels my passion.</p>
+                    <p>Now, I want to combine this passion with two essential goals: to make my knowledge useful to others and to contribute to the betterment of the world. That’s why I’m looking for a job. Not just any job, but a team where I can find like-minded individuals. People who see value in what I bring to the table and with whom I can grow while making a meaningful impact.</p>
+                    <p>I am confident that my future will soon become my present, and when that happens, this article will be rewritten.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- JS -->
  <script src="{% static 'js/app.js' %}"></script><!-- js -->
