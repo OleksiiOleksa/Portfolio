@@ -11,6 +11,8 @@ ALLOWED_HOSTS = ['portfoliobaginski.com', 'www.portfoliobaginski.com', '127.0.0.
 
 PORT = os.environ.get('PORT', 8080)
 
+HOST = '0.0.0.0'
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
