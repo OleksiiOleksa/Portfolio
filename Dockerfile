@@ -1,20 +1,21 @@
-# Используем официальный Python образ как базовый
-FROM python:3.12-slim
+# Используем официальный образ Python
+FROM python:3.12
 
 # Устанавливаем рабочую директорию в контейнере
 WORKDIR /app
 
-# Копируем файл зависимостей в контейнер
-COPY requirements.txt /app/
+# Копируем файлы проекта в контейнер
+COPY . .
 
 # Устанавливаем зависимости
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip
+RUN pip install -r mysite/requirements.txt
 
-# Копируем весь код проекта в контейнер
-COPY . /app/
+# Устанавливаем переменные окружения
+ENV PYTHONUNBUFFERED=1
 
-# Открываем порт 8000 для взаимодействия с приложением
+# Открываем порт
 EXPOSE 8000
 
-# Запускаем приложение с помощью gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "mysite.wsgi:application"]ы
+# Запуск миграций и старт сервера
+CMD ["sh", "-c", "python mysite/manage.py migrate && python mysite/manage.py runserver 0.0.0.0:8000"]
