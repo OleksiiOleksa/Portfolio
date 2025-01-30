@@ -5,9 +5,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-^pzt1xyk4@!&e5!&eai4olr086y!$qf791k(v50mr*o7e&shwk'
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['portfoliobaginski.com', 'www.portfoliobaginski.com']
+ALLOWED_HOSTS = ['portfoliobaginski.com', 'www.portfoliobaginski.com', '127.0.0.1', 'localhost', 'web-production-4bcb.up.railway.app']
+
+PORT = os.environ.get('PORT', 8080)
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -99,6 +101,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'homepage/static',
 ]
 
+STATICFILES_DIRS = [BASE_DIR / 'homepage/static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
