@@ -18,4 +18,4 @@ ENV PYTHONUNBUFFERED=1
 EXPOSE 8000
 
 # Запуск миграций и старт сервера
-CMD ["sh", "-c", "python mysite/manage.py migrate && python mysite/manage.py runserver 0.0.0.0:8000"]
+CMD ["gunicorn", "mysite.wsgi:application", "--bind", "0.0.0.0:$PORT"]
