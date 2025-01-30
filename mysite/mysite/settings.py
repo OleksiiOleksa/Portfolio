@@ -1,10 +1,11 @@
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-^pzt1xyk4@!&e5!&eai4olr086y!$qf791k(v50mr*o7e&shwk'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['portfoliobaginski.com', 'www.portfoliobaginski.com']
 
