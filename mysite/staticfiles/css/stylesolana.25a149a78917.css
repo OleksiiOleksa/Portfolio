@@ -1,0 +1,179 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F9FAFB; /* Светлый фон */
+    color: #333; /* Основной текст */
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #333; /* Темный фон */
+    color: #fff;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: bold;
+    color: #9945FF; /* Фиолетовый Solana */
+}
+
+nav {
+    margin-top: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #14F195; /* Зеленый Solana */
+}
+
+/* Основные секции */
+section {
+    padding: 40px 0;
+    background-color: #fff;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Кнопки */
+button {
+    background: linear-gradient(90deg, #9945FF, #14F195);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Карточки для отображения данных */
+.card {
+    background-color: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+}
+
+table thead {
+    background-color: #F3F4F6;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #E5E7EB;
+}
+
+table th {
+    font-weight: bold;
+    color: #333;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #F9FAFB;
+}
+
+/* Градиентный текст */
+.gradient-text {
+    background: linear-gradient(90deg, #9945FF, #14F195);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 30px;
+}
+
+footer a {
+    color: #14F195;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Респонсивность */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        width: 95%;
+    }
+}

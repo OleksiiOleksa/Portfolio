@@ -1,19 +1,26 @@
+import os
 from pathlib import Path
+import environ
+
+# Инициализация environ
+env = environ.Env()
+environ.Env.read_env()  # Чтение .env файла
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-^pzt1xyk4@!&e5!&eai4olr086y!$qf791k(v50mr*o7e&shwk'
+SECRET_KEY = env('DJANGO_SECRET_KEY', default='default_secret_key')
 
-DEBUG = True
+DEBUG = env('DJANGO_DEBUG') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']  # Установи список хостов, если нужно
 
+# Почта
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'baginski.oleksii@gmail.com'  # Ваша почта
-EMAIL_HOST_PASSWORD = 'djemdxytvofzyokh'  # Пароль приложения Google
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -60,10 +67,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',  
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
     }
 }
 
@@ -90,6 +102,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Настройки статики
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
