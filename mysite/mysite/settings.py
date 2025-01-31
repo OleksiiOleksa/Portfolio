@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='default_secret_key')
 
-DEBUG = env('DJANGO_DEBUG') == 'True'
+DEBUG = env('DJANGO_DEBUG') == 'False'
 
 ALLOWED_HOSTS = ['*']  # Установи список хостов, если нужно
 
