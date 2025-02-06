@@ -4,15 +4,18 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent  # Должно быть раньше env
 
-# Инициализация environ (если еще не сделано)
 import environ
+
+# Инициализация окружения
 env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+# Чтение .env файла
+environ.Env.read_env()
 
 # Подключение к базе данных
 DATABASES = {
     'default': dj_database_url.config(default=env('DATABASE_URL'), conn_max_age=600)
 }
+
 
 # Печать для диагностики значения DATABASE_URL
 print("DATABASE_URL:", env('DATABASE_URL', default='not_found'))
