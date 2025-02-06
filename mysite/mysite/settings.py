@@ -14,8 +14,6 @@ DATABASES = {
     'default': dj_database_url.config(default=env('DATABASE_URL'), conn_max_age=600)
 }
 
-# Печать для диагностики значения DATABASE_URL
-print("DATABASE_URL:", env('DATABASE_URL', default='not_found'))
 
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='default_secret_key')
 
