@@ -3,14 +3,18 @@ from pathlib import Path
 import environ
 
 # Инициализация environ
-env = environ.Env()
+env = environ.Env(
+    DEBUG=(bool, False)  # Указываем, что DEBUG должен быть булевым значением
+)
 environ.Env.read_env()  # Чтение .env файла
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='default_secret_key')
 
-DEBUG = env('DJANGO_DEBUG') == 'True'
+DEBUG = env.bool("DJANGO_DEBUG", default=False)
+
+PORT = os.getenv("PORT", "8080")
 
 ALLOWED_HOSTS = ['*']  # Установи список хостов, если нужно
 
