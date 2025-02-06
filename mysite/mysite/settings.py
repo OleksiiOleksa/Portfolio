@@ -1,13 +1,18 @@
 import os
-from pathlib import Path
-import environ
 import dj_database_url
+from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent  # Должно быть раньше env
 
-# Инициализация environ
+# Инициализация environ (если еще не сделано)
+import environ
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+# Подключение к базе данных
+DATABASES = {
+    'default': dj_database_url.config(default=env('DATABASE_URL'), conn_max_age=600)
+}
 
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='default_secret_key')
 
@@ -71,10 +76,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-# База данных (Railway PostgreSQL)
-DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'), conn_max_age=600)
-}
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
