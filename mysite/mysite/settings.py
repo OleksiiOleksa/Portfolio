@@ -14,6 +14,9 @@ DATABASES = {
     'default': dj_database_url.config(default=env('DATABASE_URL'), conn_max_age=600)
 }
 
+# Печать для диагностики значения DATABASE_URL
+print("DATABASE_URL:", env('DATABASE_URL', default='not_found'))
+
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='default_secret_key')
 
 DEBUG = env.bool("DJANGO_DEBUG", default=False)
@@ -102,5 +105,3 @@ if not DEBUG:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-print("DB_HOST:", env('DB_HOST', default='localhost'))
