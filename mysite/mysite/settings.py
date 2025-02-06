@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # База данных (Railway PostgreSQL)
 DATABASES = {
-    'default': dj_database_url.config(default=env('DATABASE_URL'), conn_max_age=600)
+    'default': env.db('DATABASE_URL')
 }
 
 AUTH_PASSWORD_VALIDATORS = [
