@@ -2,21 +2,20 @@ import os
 from pathlib import Path
 import environ
 
-# Инициализация environ
-env = environ.Env(
-    DEBUG=(bool, False)  # Указываем, что DEBUG должен быть булевым значением
-)
-environ.Env.read_env()  # Чтение .env файла
+BASE_DIR = Path(__file__).resolve().parent.parent  # Должно быть раньше env
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+# Инициализация environ
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='default_secret_key')
 
 DEBUG = env.bool("DJANGO_DEBUG", default=False)
 
-PORT = os.getenv("PORT", "8080")
+PORT = env("PORT", default="8080")
 
-ALLOWED_HOSTS = ['*']  # Установи список хостов, если нужно
+# Безопасность
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['127.0.0.1', 'localhost'])
 
 # Почта
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -54,8 +53,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'homepage/templates',  # Путь для шаблонов из приложения homepage
-            BASE_DIR / 'solanapage/templates',  # Добавляем путь для шаблонов из приложения solanapage
+            BASE_DIR / 'homepage/templates',
+            BASE_DIR / 'solanapage/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -71,7 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-
+# База данных (Railway PostgreSQL)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  
@@ -84,42 +83,29 @@ DATABASES = {
 }
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
-# Настройки статики
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-
+# Статика
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / 'homepage/static',
-]
-
+STATICFILES_DIRS = [BASE_DIR / 'homepage/static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+# Только для продакшена
+if not DEBUG:
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-print("DB_HOST:", os.getenv("DB_HOST"))
+print("DB_HOST:", env('DB_HOST', default='localhost'))
