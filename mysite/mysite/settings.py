@@ -17,13 +17,12 @@ DATABASES = {
 
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='default_secret_key')
 
-DEBUG = env.bool("DJANGO_DEBUG", default=False)
+DEBUG = True
 
 PORT = env("PORT", default="8080")
 
 # Безопасность
-ALLOWED_HOSTS = ['portfolio-production-d97e.up.railway.app', 'localhost']
-
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'portfolio-production-d97e.up.railway.app']
 
 # Почта
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -91,10 +90,17 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
+
+MIDDLEWARE = [
+    # другие middleware
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+]
 # Статика
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'homepage/static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
