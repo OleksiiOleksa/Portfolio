@@ -95,7 +95,6 @@ MIDDLEWARE = [
     # другие middleware
     'whitenoise.middleware.WhiteNoiseMiddleware',  # если она присутствует
     'django.contrib.messages.middleware.MessageMiddleware',  # добавляем сюда
-    # другие middleware
 ]
 # Статика
 STATIC_URL = '/static/'
