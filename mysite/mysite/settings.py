@@ -92,11 +92,13 @@ USE_TZ = True
 
 
 MIDDLEWARE = [
-    # другие middleware
-    'django.contrib.sessions.middleware.SessionMiddleware',  # добавляем сюда
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # если она присутствует
-    'django.contrib.messages.middleware.MessageMiddleware',  # и здесь
-    # другие middleware
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',  # ✅ Добавь это
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  
 ]
 # Статика
 STATIC_URL = '/static/'
