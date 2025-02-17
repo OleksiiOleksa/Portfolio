@@ -1,9 +1,9 @@
 // main: ../style.less
-
 .articles {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Принудительно располагает элементы в одну строку */
     margin: 0 -1rem;
+    justify-content: space-between; /* Распределяет элементы равномерно */
 }
 
 .articles__col {
@@ -13,7 +13,6 @@
 
 .articles__item {
     margin-bottom: 2rem;
-
 }
 
 .articles__header {
