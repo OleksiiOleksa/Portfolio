@@ -360,7 +360,7 @@
                     <p>The project incorporates web scraping to gather information from various external sources, ensuring real-time data updates. </p>                    
                 </div>
 
-                <div class="modal-work__footer">
+                {% comment %} <div class="modal-work__footer">
                     <button class="modal-work__btn" type="button">
                         <img src="{% static 'images/left.svg' %}" height="12" alt="">
                         Previous
@@ -368,7 +368,7 @@
                     <button class="modal-work__btn" type="button">
                         Next
                         <img src="{% static 'images/right.svg' %}" height="13" alt="">                    
-                    </button>
+                    </button> {% endcomment %}
 
                     <a href="{% url 'solanapage' %}" class="modal-work__btn">Go to Solana Page</a>
                 </div>
