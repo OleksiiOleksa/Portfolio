@@ -14,6 +14,9 @@ DATABASES = {
     'default': dj_database_url.config(default=env('DATABASE_URL'), conn_max_age=600)
 }
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://portfolio-production-d97e.up.railway.app',
+]
 
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='default_secret_key')
 
