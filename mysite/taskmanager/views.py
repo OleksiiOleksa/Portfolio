@@ -8,7 +8,7 @@ from django.http import JsonResponse
 
 
 def task_list(request):
-    sort_by = request.GET.get('sort_by', 'created_at')  # По умолчанию сортировка по дате создания
+    sort_by = request.GET.get('sort_by', 'created_at')  
     tasks = Task.objects.all().order_by(sort_by)
     return render(request, 'taskmanager/task_list.html', {'tasks': tasks})
 

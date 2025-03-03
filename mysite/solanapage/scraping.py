@@ -3,22 +3,22 @@ import requests
 
 def fetch_solana_news():
     news = []
-    api_key = "d4b6969745e945cda48360752a325b8a"  # Ваш API ключ
+    api_key = "d4b6969745e945cda48360752a325b8a"  
     url = f"https://newsapi.org/v2/everything?q=solana&language=en&apiKey={api_key}"
     
     try:
         response = requests.get(url)
-        response.raise_for_status()  # Проверяем успешность запроса
+        response.raise_for_status()  
         data = response.json()
 
-        # Получаем список статей, ограничиваем до 10
+        
         articles = data.get('articles', [])[:10]
         
-        # Сортировка новостей по времени (по убыванию, где первая - самая свежая)
+        
         articles.sort(key=lambda article: article['publishedAt'], reverse=True)
 
         for article in articles:
-            # Преобразуем время в удобный формат
+            
             published_at = article.get('publishedAt', '')
             title = article.get('title', '')
             link = article.get('url', '')

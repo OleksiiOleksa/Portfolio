@@ -27,42 +27,42 @@ $(function() {
 
     /* Modal ==============*/
 
-    const modalCall = $("[data-modal]"); // Элементы с атрибутом data-modal
-    const modalClose = $("[data-close]"); // Элементы с атрибутом data-close
+    const modalCall = $("[data-modal]"); 
+    const modalClose = $("[data-close]"); 
     
-    // Открытие модального окна
+    
     modalCall.on("click", function(event) {
-        event.preventDefault(); // Отменяем стандартное действие
+        event.preventDefault(); 
 
-        let modalId = $(this).data('modal'); // Получаем id модального окна
-        console.log("Opening modal:", modalId); // Лог для отладки
+        let modalId = $(this).data('modal'); 
+        console.log("Opening modal:", modalId); 
 
-        $(modalId).addClass('show'); // Добавляем класс 'show' для отображения модального окна
-        $("body").addClass('no-scroll'); // Отключаем прокрутку страницы
+        $(modalId).addClass('show'); 
+        $("body").addClass('no-scroll'); 
     });
 
-    // Закрытие модального окна
+    
     modalClose.on("click", function(event) {
-        event.preventDefault(); // Отменяем стандартное действие
+        event.preventDefault(); 
 
-        let modalParent = $(this).closest('.modal'); // Находим родительское модальное окно
-        console.log("Closing modal:", modalParent); // Лог для отладки
+        let modalParent = $(this).closest('.modal'); 
+        console.log("Closing modal:", modalParent); 
 
-        modalParent.removeClass('show'); // Убираем класс 'show', чтобы скрыть модальное окно
-        $("body").removeClass('no-scroll'); // Включаем прокрутку страницы
+        modalParent.removeClass('show'); 
+        $("body").removeClass('no-scroll'); 
     });
 
-     // Проверяем, если есть блок сообщений
+     
      if ($('.messages').length) {
-        // Удалить сообщение через 3 секунды
+        
         setTimeout(function() {
-            const messages = document.querySelector('.messages'); // Находим блок с сообщением
+            const messages = document.querySelector('.messages'); 
             if (messages) {
-                messages.style.transition = "opacity 0.5s"; // Анимация плавного исчезновения
-                messages.style.opacity = "0"; // Прозрачность на 0
-                setTimeout(() => messages.remove(), 500); // Удаляем элемент через 0.5 секунды после исчезновения
+                messages.style.transition = "opacity 0.5s"; 
+                messages.style.opacity = "0"; 
+                setTimeout(() => messages.remove(), 500); 
             }
-        }, 3000); // Задержка в 3 секунды
+        }, 3000); 
     }
 
 });

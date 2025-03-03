@@ -10,10 +10,10 @@ class Task(models.Model):
     ]
     
     title = models.CharField(max_length=100)
-    description = models.TextField(default='')  # Указываем дефолтное значение
+    description = models.TextField(default='')  
     priority = models.CharField(max_length=10, choices=PRIORITY_CHOICES)
     is_completed = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)  # Поле для времени создания задачи
+    created_at = models.DateTimeField(auto_now_add=True)  
 
     def __str__(self):
         return self.title

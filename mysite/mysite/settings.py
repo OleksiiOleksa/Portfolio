@@ -2,14 +2,14 @@ import os
 import dj_database_url
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent  # Должно быть раньше env
+BASE_DIR = Path(__file__).resolve().parent.parent  
 
-# Инициализация environ (если еще не сделано)
+
 import environ
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-# Подключение к базе данных
+
 DATABASES = {
     'default': dj_database_url.config(default=env('DATABASE_URL'), conn_max_age=600)
 }
@@ -24,10 +24,10 @@ DEBUG = True
 
 PORT = env("PORT", default="8080")
 
-# Безопасность
+
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'portfolio-production-d97e.up.railway.app']
 
-# Почта
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -99,7 +99,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',  # ✅ Добавь это
+    'django.contrib.auth.middleware.AuthenticationMiddleware',  
     'django.contrib.messages.middleware.MessageMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  
 ]
@@ -113,7 +113,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Только для продакшена
+
 if not DEBUG:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 

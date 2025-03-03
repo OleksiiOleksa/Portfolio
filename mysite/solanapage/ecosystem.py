@@ -2,7 +2,7 @@
 import requests
 
 def fetch_ecosystem_projects():
-    url = "https://api.coingecko.com/api/v3/coins/solana/tickers"  # Пример: используем CoinGecko для списка бирж
+    url = "https://api.coingecko.com/api/v3/coins/solana/tickers"  
     projects = []
     try:
         response = requests.get(url)
@@ -10,7 +10,7 @@ def fetch_ecosystem_projects():
         data = response.json()
 
         tickers = data.get('tickers', [])
-        for ticker in tickers[:10]:  # Ограничиваемся 10 проектами
+        for ticker in tickers[:10]:  
             projects.append({
                 "name": ticker.get('market', {}).get('name', 'Unknown'),
                 "link": ticker.get('trade_url', '#'),
@@ -18,7 +18,7 @@ def fetch_ecosystem_projects():
                 "category": "Exchange"
             })
 
-        # Пример дополнительных проектов
+        
         projects.extend([
             {"name": "Phantom Wallet", "link": "https://phantom.app/", "description": "Popular Solana Wallet", "category": "Wallet"},
             {"name": "Magic Eden", "link": "https://magiceden.io/", "description": "Leading NFT Marketplace", "category": "NFT"}
